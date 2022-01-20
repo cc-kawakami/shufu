@@ -34,7 +34,7 @@ command = Shufu::Command.new("git commit", schema)
 
 p command.line({ amend: true, author: "cc-kawakami" })
 
-# git commit --amend --author=cc-kawakami
+# => "git commit --amend --author=cc-kawakami"
 ```
 
 ## Development
