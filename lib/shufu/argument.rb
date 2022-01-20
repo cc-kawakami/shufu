@@ -5,7 +5,7 @@ module Shufu
     extend Dry::Initializer
 
     option :name, proc(&:to_s)
-    option :type, proc(&:to_sym), default: proc { :param }
+    option :type, proc(&:to_sym), default: proc { :equal }
 
     def to_s(value)
       case type
