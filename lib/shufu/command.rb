@@ -1,10 +1,10 @@
 module Shufu
   class Command
     #
-    # @param [Array<Hash>] schema
+    # @param [Hash] schema
     #
     def initialize(schema)
-      @schema = schema.map { |s| Argument.new(**s) }
+      @schema = schema
     end
 
     #
@@ -12,24 +12,23 @@ module Shufu
     # @return [String]
     #
     def to_s(values)
-      arguments(values).join(" ")
+      arguments(@schema, values, []).join(" ")
     end
 
     #
-    # @reutrn [Array<String>]
+    # @param [Hash] schema
+    # @param [Hash] values
     #
-    def arguments(values)
-      [commands] + values.map { |k, v|
-        a = @schema.find { |a| a.name == k.to_s } || Argument.new(name: k)
-        a.to_s(v)
-      }
-    end
+    def arguments(schema, values, args)
+      schema.each do |k, v|
+        if v.is_a?(Hash)
+          args = arguments(v, values, args).prepend(k)
+        else
+          args << Argument.new(name: k, type: v).to_s(values[k]) if values[k]
+        end
+      end
 
-    #
-    # @return [Array<String>]
-    #
-    def commands
-      @schema.select { |a| a.type == :command }.map(&:name)
+      args
     end
   end
 end

@@ -1,12 +1,15 @@
 RSpec.describe Shufu::Command do
   def schema
-    [
-      { name: "bundle", type: :command },
-      { name: "gem", type: :command },
-      { name: "name", type: :param },
-      { name: "exec", type: :flag },
-      { name: "ci", type: :space },
-    ]
+    {
+      bundle: {
+        gem: {
+          name: :param ,
+          exec: :flag ,
+          test: :equal,
+          ci: :space
+        }
+      }
+    }
   end
 
   def values

@@ -23,12 +23,14 @@ Or install it yourself as:
 ```ruby
 require "shufu"
 
-schema = [
-    { name: "git", type: "command" },
-    { name: "commit", type: "command" },
-    { name: "amend", type: "flag" },
-    { name: "author", type: "equal" }
-]
+schema = {
+  git: {
+    commit: {
+      amend: :flag,
+      author: :equal
+    }
+  }
+}
 
 command = Shufu::Command.new(schema)
 
