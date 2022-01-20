@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    shufu (0.1.1)
+    shufu (0.1.2)
       dry-schema
 
 GEM
