@@ -4,11 +4,11 @@ module Shufu
   class Command
     def initialize(base, schema)
       @base = base
-      schema = Shufu::Schema.call(schema)
+      schema = Shufu::Schema.call({ schema: schema })
       if schema.failure?
         raise Shufu::InvalidSchemaError, schema.errors(full: true).to_h
       end
-      @schema = schema
+      @schema = schema.to_h[:schema]
     end
 
     def line(values)

@@ -2,14 +2,12 @@ RSpec.describe Shufu::Command do
   def command 
     Shufu::Command.new(
       'bundle gem',
-      {
-        schema: [
-          { name: "name", type: "argument" },
-          { name: "exec", type: "option", flag: true },
-          { name: "test", type: "option", equal: true },
-          { name: "ci", type: "option", equal: false },
-        ]
-      }
+      [
+        { name: "name", type: "argument" },
+        { name: "exec", type: "option", flag: true },
+        { name: "test", type: "option", equal: true },
+        { name: "ci", type: "option", equal: false },
+      ]
     )
   end
 

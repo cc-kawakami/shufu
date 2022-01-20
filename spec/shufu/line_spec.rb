@@ -4,14 +4,12 @@ RSpec.describe Shufu::Line do
   end
 
   def schema
-    {
-      schema: [
+    [
         { name: "name", type: "argument" },
         { name: "exec", type: "option", flag: true },
         { name: "test", type: "option", equal: true },
         { name: "ci", type: "option", equal: false },
-      ]
-    }
+    ]
   end
 
   def values

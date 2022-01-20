@@ -7,7 +7,7 @@ module Shufu
     end
 
     def schema
-      @all_schema[:schema].find { |s| s[:name] == @name.to_s }
+      @all_schema.find { |s| s[:name] == @name.to_s }
     end
     
 
