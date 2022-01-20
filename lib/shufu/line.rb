@@ -7,11 +7,11 @@ module Shufu
     end
 
     def to_s
-      [@base, items].flatten.join(" ")
-    end
-
-    def items
-      @values.map { |k, v| Shufu::Item.new(@schema, k, v).to_s }
+      ([@base] + @values.map { |k, v|
+        argument = @schema.find { |a| a.name == k.to_s }
+        argument = Shufu::Argument.new(name: k) if !argument
+        argument.to_s(v)
+      }).join(" ")
     end
   end
 end

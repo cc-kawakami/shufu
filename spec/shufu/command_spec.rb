@@ -3,10 +3,10 @@ RSpec.describe Shufu::Command do
     Shufu::Command.new(
       'bundle gem',
       [
-        { name: "name", type: "argument" },
-        { name: "exec", type: "option", flag: true },
-        { name: "test", type: "option", equal: true },
-        { name: "ci", type: "option", equal: false },
+        { name: "name", type: "param" },
+        { name: "exec", type: "flag" },
+        { name: "test", type: "equal" },
+        { name: "ci", type: "space" },
       ]
     )
   end

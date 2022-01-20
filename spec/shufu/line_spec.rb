@@ -5,10 +5,10 @@ RSpec.describe Shufu::Line do
 
   def schema
     [
-        { name: "name", type: "argument" },
-        { name: "exec", type: "option", flag: true },
-        { name: "test", type: "option", equal: true },
-        { name: "ci", type: "option", equal: false },
+      Shufu::Argument.new(name: "name", type: "param"),
+      Shufu::Argument.new(name: "exec", type: "flag"),
+      Shufu::Argument.new(name: "test", type: "equal"),
+      Shufu::Argument.new(name: "ci", type: "space"),
     ]
   end
 
