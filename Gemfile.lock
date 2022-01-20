@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    shufu (0.1.0)
+    shufu (0.1.1)
       dry-schema
 
 GEM
@@ -18,7 +18,7 @@ GEM
     dry-core (0.7.1)
       concurrent-ruby (~> 1.0)
     dry-inflector (0.2.1)
-    dry-initializer (3.1.0)
+    dry-initializer (3.1.1)
     dry-logic (1.2.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
