@@ -23,19 +23,16 @@ Or install it yourself as:
 ```ruby
 require "shufu"
 
-Shufu::Line.new(
-    "git commit",
-    {
-        schema: [
-            { name: "amend", type: option, flag: true },
-            { name: "author", type: option, equal: true }
-        ]
-    },
-    {
-        amend: true,
-        author: "cc-kawakami"
-    }
-).to_s
+schema = {
+    schema: [
+        { name: "amend", type: option, flag: true },
+        { name: "author", type: option, equal: true }
+    ]
+}
+
+command = Shufu::Command.new("git commit", schema)
+
+p command.line({ amend: true, author: "cc-kawakami" })
 
 # git commit --amend --author=cc-kawakami
 ```

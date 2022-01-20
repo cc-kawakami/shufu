@@ -1,19 +1,13 @@
 module Shufu
-  class InvalidSchemaError < RuntimeError; end
-
   class Line
-    def initialize(main, schema, values)
-      @main = main
-      schema = Shufu::Schema.call(schema)
-      if schema.failure?
-        raise Shufu::InvalidSchemaError, schema.errors(full: true).to_h
-      end
+    def initialize(base, schema, values)
+      @base = base
       @schema = schema
       @values = values
     end
 
     def to_s
-      [@main, items].flatten.join(" ")
+      [@base, items].flatten.join(" ")
     end
 
     def items
